@@ -104,6 +104,11 @@ server <- function(input,output){
     complaint.sub.df <- as.data.frame(complaint.sub)
     max.ylim <- round_any((1.1*max(complaint.sub.df[ , 1 ] )), 10, f = ceiling)
     
+    # If there is no max y limit, then set it to 1
+    if(max.ylim == 0) { 
+      max.ylim = 1
+      }
+    
     # Set pretty names
     pretty.names <- format( as.Date(names(complaint.sub)), "%b-%Y" )
     month.labels <- format( as.Date(names(complaint.sub)), "%b" )
@@ -135,6 +140,11 @@ server <- function(input,output){
     
     violation.sub.df <- as.data.frame(violation.sub)
     max.ylim <- round_any((1.1*max(violation.sub.df[ , 1 ] )), 10, f = ceiling)
+    
+    # If there is no max y limit, then set it to 1
+    if(max.ylim == 0) { 
+      max.ylim = 1
+    }
     
     # Set pretty names
     
